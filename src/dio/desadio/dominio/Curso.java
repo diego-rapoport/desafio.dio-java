@@ -1,25 +1,6 @@
 package dio.desadio.dominio;
 
-public class Curso {
-    private String titulo;
-    private String descricao;
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
+public class Curso extends Conteudo {
     public int getCargaHoraria() {
         return cargaHoraria;
     }
@@ -32,10 +13,13 @@ public class Curso {
 
     @Override
     public String toString() {
-        return "Curso{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", cargaHoraria=" + cargaHoraria +
-                '}';
+        return "Curso: " + getTitulo() + "\n\t\t\t" +
+                "Descrição: " + getDescricao() + "\n\t\t\t" +
+                "Carga horária(em horas): " + getCargaHoraria() + "\n\t";
+    }
+
+    @Override
+    protected double calcularXp() {
+        return XP_PADRAO + getCargaHoraria();
     }
 }

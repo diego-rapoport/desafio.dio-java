@@ -2,26 +2,8 @@ package dio.desadio.dominio;
 
 import java.time.LocalDate;
 
-public class Mentoria {
-    String titulo;
-    String descricao;
+public class Mentoria extends Conteudo {
     LocalDate data;
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
     public LocalDate getData() {
         return data;
@@ -33,10 +15,14 @@ public class Mentoria {
 
     @Override
     public String toString() {
-        return "Mentoria{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", data=" + data +
-                '}';
+        return "Mentoria: \n\t\t\t" +
+                "Título: " + getTitulo() + "\n\t\t\t" +
+                "Descrição: " + getDescricao() + "\n\t\t\t" +
+                "Data Inicial: " + getData();
+    }
+
+    @Override
+    protected double calcularXp() {
+        return XP_PADRAO + 20d;
     }
 }
